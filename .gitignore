@@ -1,0 +1,10 @@
+**/.terraform/*
+
+**/.vsccode/
+
+#.tfstate file
+.tfstat
+.tfstate.*
+
+#Crash log files
+crash.log
