@@ -12,7 +12,7 @@ pipeline {
         stage ('Deploy')
         {
             steps {
-                sh "tf apply"
+                sh "/usr/local/bin/tf apply"
                 echo "Deploy Stage completed"
             }
         }
