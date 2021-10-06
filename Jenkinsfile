@@ -12,6 +12,7 @@ pipeline {
         stage ('Deploy')
         {
             steps {
+		// sh "cd ./ec2"
                 sh "/usr/local/bin/tf init"
                 sh "/usr/local/bin/tf apply  -auto-approve" 
                 echo "Deploy Stage completed"
