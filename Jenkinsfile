@@ -8,5 +8,18 @@ pipeline {
                 echo "Build Stage completed"
             }
         }
+        stage ('Deploy')
+        {
+            steps {
+                sh "cd ec2 ;tf apply"
+                echo "Deploy Stare completed"
+            }
+        }
+        stage ('Test')
+        {
+            steps {
+                echo "Test Stage completed"
+            }
+        }
       }
 }
