@@ -11,7 +11,7 @@ pipeline {
         stage ('Deploy')
         {
             steps {
-                sh "cd ec2 ;tf apply"
+                sh "tf apply"
                 echo "Deploy Stare completed"
             }
         }
