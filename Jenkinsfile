@@ -12,8 +12,8 @@ pipeline {
         stage ('Deploy')
         {
             steps {
-               // sh "/usr/local/bin/tf init"
-                sh "/usr/local/bin/tf destroy  -auto-approve" 
+                sh "/usr/local/bin/tf init"
+                sh "/usr/local/bin/tf apply  -auto-approve" 
                 echo "Deploy Stage completed"
             }
         }
