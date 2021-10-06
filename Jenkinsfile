@@ -8,4 +8,5 @@ pipeline {
                 echo "Build Stage completed"
             }
         }
+      }
 }
