@@ -1,10 +1,11 @@
 pipeline {
     agent any
       stages {
-        stage ('SCM chckout')
+        stage ('SCM checkout')
         {
             steps {
-                git 'https://github.com/amit-chhatbar/aws-templates.git'
+             	checkout scm
+	 //     git 'https://github.com/amit-chhatbar/aws-templates.git'
                 echo "Build Stage completed"
             }
         }
@@ -12,7 +13,7 @@ pipeline {
         {
             steps {
                 sh "tf apply"
-                echo "Deploy Stare completed"
+                echo "Deploy Stage completed"
             }
         }
         stage ('Test')
