@@ -13,7 +13,7 @@ pipeline {
         {
             steps {
                 sh "/usr/local/bin/tf init"
-                sh "/usr/local/bin/tf apply"
+                sh "/usr/local/bin/tf apply -auto-approve" 
                 echo "Deploy Stage completed"
             }
         }
