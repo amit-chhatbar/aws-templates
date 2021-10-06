@@ -17,6 +17,7 @@ resource "aws_launch_template" "this" {
   name_prefix   = "${var.app}-lt"
   image_id      = var.web_image_id 
   instance_type = var.web_instance_type
+  key_name      = "bigdata"
 }
 
 resource "aws_autoscaling_group" "this" {
