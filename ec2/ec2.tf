@@ -3,6 +3,15 @@ provider "aws" {
     region  = "us-east-2"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "tfstat-bucket"
+    key    = "terraform-state/"
+    region = "us-east-2"
+    encrypt = true
+  }
+}
+
 resource "aws_s3_bucket" "tf_test1" {
     bucket = "s3-tf-test-amit-100321"
     acl    = "private"
@@ -116,6 +125,12 @@ resource "aws_iam_policy_attachment" "test_attach2" {
   name       = "test-attachment"
   roles      = [aws_iam_role.test_role.id]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+}
+
+resource "aws_iam_policy_attachment" "test_attach3" {
+  name       = "test-attachment"
+  roles      = [aws_iam_role.test_role.id]
+  policy_arn = "arn:aws:iam::396443123216:policy/s3terraformbackend"
 }
 
 resource "aws_instance" "prod_web" {
