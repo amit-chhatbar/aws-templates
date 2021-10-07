@@ -3,6 +3,15 @@ provider "aws" {
     region  = "us-east-2"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "tfstat-bucket"
+    key    = "terraform-state/"
+    region = "us-east-2"
+    encrypt = true
+  }
+}
+
 resource "aws_s3_bucket" "tf_test1" {
     bucket = "s3-tf-test-amit-100321"
     acl    = "private"
